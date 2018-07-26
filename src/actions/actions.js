@@ -1,10 +1,11 @@
+
 export const addSymbol = (row, position, symbol) => ({
-  type: "ADD_SYMBOL",
+  type: 'ADD_SYMBOL',
   symbol,
   row,
-  position
+  position,
 });
 
 export const startAgain = () => ({
-  type: "RESTART"
+  type: 'RESTART',
 });

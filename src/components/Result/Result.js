@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Box, Heading } from "rebass";
-import styled from "styled-components";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Heading } from 'rebass';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const StyledBox = styled(Box)`
   margin-top: 4px;
@@ -13,14 +13,14 @@ const StyledBox = styled(Box)`
 
 class Result extends Component {
   render() {
-    let result = "";
+    let result = '';
     if (this.props.turn) {
       result = `Próximo jugador ${this.props.turn.toUpperCase()}`;
     }
     if (this.props.won) {
       result = `¡Ganó jugador ${this.props.won.toUpperCase()}!`;
     } else if (this.props.draw) {
-      result = "¡Empate!";
+      result = '¡Empate!';
     }
     return (
       <StyledBox bg="white">
@@ -33,15 +33,15 @@ class Result extends Component {
 }
 
 Result.propTypes = {
-  won: PropTypes.string,
+  won: PropTypes.string.isRequired,
   turn: PropTypes.string.isRequired,
-  draw: PropTypes.bool.isRequired
+  draw: PropTypes.bool.isRequired,
 };
 
 export default connect(({ won, turn, draw }) => ({
   won,
   turn,
-  draw
+  draw,
 }))(Result);
 
 export { Result as PureResult };

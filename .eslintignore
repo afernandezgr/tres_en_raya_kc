@@ -1,0 +1,4 @@
+setupTests.js
+*.test.js
+registerServiceWorker.js
+Board.js

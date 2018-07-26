@@ -1,18 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import SymbolEmpty from "../SymbolEmpty";
-import SymbolX from "../SymbolX";
-import SymbolO from "../SymbolO";
-import { X, O } from "../../constants";
-import { addSymbol, startAgain } from "../../actions/actions";
-import { connect } from "react-redux";
-import { ButtonCircle } from "rebass";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { ButtonCircle } from 'rebass';
+import SymbolEmpty from '../SymbolEmpty';
+import SymbolX from '../SymbolX';
+import SymbolO from '../SymbolO';
+import { X, O } from '../../constants';
+import { addSymbol, startAgain } from '../../actions/actions';
 
 class Board extends Component {
-  addSymbol(rowIndex, position, symbol) {
-    !this.props.won && this.props.addSymbol(rowIndex, position, symbol);
-  }
-
   getSymbol(rowIndex, position, symbol) {
     if (symbol === X) {
       return <SymbolX key={position} position={position} />;
@@ -29,26 +25,23 @@ class Board extends Component {
     );
   }
 
+  addSymbol(rowIndex, position, symbol) {
+    !this.props.won && this.props.addSymbol(rowIndex, position, symbol);
+  }
+
   render() {
-    const wonClass = this.props.won ? ` won-${this.props.wonLine}` : "";
-    const drawClass = this.props.draw ? " draw" : "";
-    const boardClass = "board" + wonClass + drawClass;
+    const wonClass = this.props.won ? ` won-${this.props.wonLine}` : '';
+    const drawClass = this.props.draw ? ' draw' : '';
+    const boardClass = `board${wonClass}${drawClass}`;
     return (
       <div className={boardClass}>
-        {Object.keys(this.props.board).map(rowIndex => {
-          return (
-            <div className={`row row${rowIndex}`} key={rowIndex}>
-              {this.props.board[rowIndex].map((symbol, positon) => {
-                return this.getSymbol(rowIndex, positon, symbol);
-              })}
-            </div>
-          );
-        })}
+        {Object.keys(this.props.board).map(rowIndex => (
+          <div className={`row row${rowIndex}`} key={rowIndex}>
+            {this.props.board[rowIndex].map((symbol, positon) => this.getSymbol(rowIndex, positon, symbol))}
+          </div>
+        ))}
         {this.props.won || this.props.draw ? (
-          <ButtonCircle
-            onClick={this.props.startAgain}
-            children="Pulse para empezar de nuevo!"
-          />
+          <ButtonCircle onClick={this.props.startAgain} children="Pulse para empezar de nuevo!" />
         ) : (
           false
         )}
@@ -58,33 +51,33 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  board: PropTypes.object.isRequired,
+  board: PropTypes.objectOf.isRequired,
   turn: PropTypes.string.isRequired,
-  won: PropTypes.string,
+  won: PropTypes.string.isRequired,
   draw: PropTypes.bool.isRequired,
-  wonLine: PropTypes.string,
+  wonLine: PropTypes.string.isRequired,
   addSymbol: PropTypes.func.isRequired,
-  startAgain: PropTypes.func.isRequired
+  startAgain: PropTypes.func.isRequired,
 };
 
 export default connect(
-  ({ board, turn, won, draw, wonLine }) => ({
+  ({
+    board, turn, won, draw, wonLine,
+  }) => ({
     board,
     turn,
     won,
     draw,
-    wonLine
+    wonLine,
   }),
-  dispatch => {
-    return {
-      addSymbol(rowIndex, position, symbol) {
-        dispatch(addSymbol(rowIndex, position, symbol));
-      },
-      startAgain() {
-        dispatch(startAgain());
-      }
-    };
-  }
+  dispatch => ({
+    addSymbol(rowIndex, position, symbol) {
+      dispatch(addSymbol(rowIndex, position, symbol));
+    },
+    startAgain() {
+      dispatch(startAgain());
+    },
+  }),
 )(Board);
 
 export { Board as PureBoard };

@@ -1,6 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 export const Symbol = styled.div`
   border-radius: 10px 10px 10px 10px;
@@ -14,12 +15,11 @@ export const Symbol = styled.div`
   transition: background-color 0.5s ease;
 `;
 
-const SymbolEmpty = props => {
-  return <Symbol onClick={() => props.addSymbol(props.turn)} />;
-};
+const SymbolEmpty = props => <Symbol onClick={() => props.addSymbol(props.turn)} />;
 
 SymbolEmpty.propTypes = {
-  addSymbol: PropTypes.func.isRequired
+  addSymbol: PropTypes.func.isRequired,
+  turn: PropTypes.string.isRequired,
 };
 
 export default SymbolEmpty;
