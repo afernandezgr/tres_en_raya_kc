@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Symbol } from './BlankSymbol';
+import React from "react";
+import PropTypes from "prop-types";
+import { Symbol } from "../SymbolEmpty";
 
-const XSymbol = (props) => {
+const SymbolX = props => {
   return (
     <Symbol className={`symbol column${props.position}`}>
       <svg viewBox="0 0 56 56">
@@ -13,8 +13,8 @@ const XSymbol = (props) => {
   );
 };
 
-XSymbol.propTypes = {
+SymbolX.propTypes = {
   position: PropTypes.number.isRequired
 };
 
-export default XSymbol;
+export default SymbolX;

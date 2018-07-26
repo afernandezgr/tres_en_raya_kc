@@ -11,12 +11,12 @@ export const Symbol = styled.div`
   width: 60px;
 `;
 
-const BlankSymbol = (props) => {
+const SymbolEmpty = (props) => {
   return <Symbol onClick={() => props.addSymbol(props.turn)}></Symbol>;
 };
 
-BlankSymbol.propTypes = {
+SymbolEmpty.propTypes = {
   addSymbol: PropTypes.func.isRequired
 };
 
-export default BlankSymbol;
+export default SymbolEmpty;

@@ -1,17 +1,17 @@
-import React from 'react';
-import Board from './Board';
-import Result from './Result';
-import styled from 'styled-components';
-import './App.css';
+import React from "react";
+import Board from "../components/Board";
+import Result from "../components/Result";
+import styled from "styled-components";
+import "./App.css";
 
-const App = ({className}) => {
+const App = ({ className }) => {
   return (
     <div className={className}>
       <Result />
       <Board />
     </div>
   );
-}
+};
 
 export default styled(App)`
   font-family: Courier New, Courier, monospace;
