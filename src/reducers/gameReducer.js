@@ -1,12 +1,12 @@
-import { X, O } from '../symbols/symbols';
-import { resultForSymbol } from '../logic/logic';
-import * as _ from 'lodash';
+import { X, O } from "../constants";
+import { resultForSymbol } from "../logic/logic";
+import * as _ from "lodash";
 
 export const initialState = {
   board: {
-    0: ['', '', ''],
-    1: ['', '', ''],
-    2: ['', '', '']
+    0: ["", "", ""],
+    1: ["", "", ""],
+    2: ["", "", ""]
   },
   won: undefined,
   wonLine: undefined,
@@ -16,8 +16,8 @@ export const initialState = {
 
 export const gameReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_SYMBOL':
-      const {symbol, row, position} = action;
+    case "ADD_SYMBOL":
+      const { symbol, row, position } = action;
       const newState = _.cloneDeep(state);
       newState.board[row][position] = symbol;
 
@@ -38,20 +38,19 @@ export const gameReducer = (state, action) => {
         newState.turn = newState.turn === O ? X : O;
       }
 
-      const boardIsFull = [
-        ...newState.board[0],
-        ...newState.board[1],
-        ...newState.board[2]
-      ]
-        .filter(symbol => symbol !== '')
-        .length === 9;
+      const boardIsFull =
+        [
+          ...newState.board[0],
+          ...newState.board[1],
+          ...newState.board[2]
+        ].filter(symbol => symbol !== "").length === 9;
 
       if (boardIsFull && !newState.won) {
         newState.draw = true;
       }
 
       return newState;
-    case 'START_AGAIN':
+    case "START_AGAIN":
       return initialState;
     default:
       return state;

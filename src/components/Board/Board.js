@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import SymbolEmpty from "../SymbolEmpty";
 import SymbolX from "../SymbolX";
 import SymbolO from "../SymbolO";
-import { X, O } from "../../symbols/symbols";
+import { X, O } from "../../constants";
 import { addSymbol, startAgain } from "../../actions/actions";
 import { connect } from "react-redux";
 
@@ -45,7 +45,7 @@ class Board extends Component {
         })}
         {this.props.won || this.props.draw ? (
           <p className="startAgain" onClick={this.props.startAgain}>
-            Click to start again!
+            Pulse para empezar de nuevo!
           </p>
         ) : (
           false

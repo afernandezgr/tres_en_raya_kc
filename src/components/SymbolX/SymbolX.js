@@ -5,9 +5,9 @@ import { Symbol } from "../SymbolEmpty";
 const SymbolX = props => {
   return (
     <Symbol className={`symbol column${props.position}`}>
-      <svg viewBox="0 0 56 56">
-        <line x1="2" y1="2" x2="54" y2="54" stroke="black" strokeWidth="2" />
-        <line x1="2" y1="54" x2="54" y2="2" stroke="black" strokeWidth="2" />
+      <svg viewBox="0 0 66 66">
+        <line x1="6" y1="18" x2="58" y2="58" stroke="gray" strokeWidth="3" />
+        <line x1="6" y1="58" x2="58" y2="18" stroke="gray" strokeWidth="3" />
       </svg>
     </Symbol>
   );

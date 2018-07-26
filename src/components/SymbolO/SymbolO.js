@@ -5,14 +5,14 @@ import { Symbol } from "../SymbolEmpty";
 const SymbolO = props => {
   return (
     <Symbol className={`symbol column${props.position}`}>
-      <svg viewBox="0 0 56 56">
+      <svg viewBox="0 0 66 70">
         <circle
-          cx={28}
-          cy={28}
+          cx={34}
+          cy={42}
           r={25}
           stroke="black"
-          strokeWidth="2"
-          fill="none"
+          strokeWidth="3"
+          fill="gray"
         />
       </svg>
     </Symbol>
