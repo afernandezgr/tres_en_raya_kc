@@ -10,11 +10,11 @@
 .board.won-rightSlant .row0 .symbol.column2,
 .board.won-rightSlant .row1 .symbol.column1,
 .board.won-rightSlant .row2 .symbol.column0 {
-  background-color: mediumseagreen;
+  background-color: greenyellow;
 }
 
 .board.draw .symbol {
-  background-color: palevioletred;
+  background-color: red;
 }
 
 .row {

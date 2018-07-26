@@ -12,7 +12,7 @@ const board = {
   2: [X, X, O]
 };
 
-it("Should render Board with symbols", () => {
+it("Debería mostrar el tablero con los simbolos", () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
@@ -29,7 +29,7 @@ it("Should render Board with symbols", () => {
   expect(wrapper.find(SymbolEmpty).length).toBe(2);
 });
 
-it('Should not display a "start again" text when neither won and there was no draw', () => {
+it("No debería mostrar el boton de comenzar de nuevo mientras un jugador no haya ganado o hay empate", () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
@@ -44,7 +44,7 @@ it('Should not display a "start again" text when neither won and there was no dr
   expect(wrapper.find("p.startAgain").length).toBe(0);
 });
 
-it('Should display a "start again" text when one symbol won', () => {
+it('Debería mostrar el botón "Start again"vcuando un jugador haya ganado', () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
@@ -60,7 +60,7 @@ it('Should display a "start again" text when one symbol won', () => {
   expect(wrapper.find("p.startAgain").length).toBe(1);
 });
 
-it('Should display a "start again" text when there was a draw', () => {
+it('Debería mostrar botón de "jugar otra vez" si existe empate', () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
@@ -73,21 +73,4 @@ it('Should display a "start again" text when there was a draw', () => {
     />
   );
   expect(wrapper.find("p.startAgain").length).toBe(1);
-});
-
-it('Should call a passed callback when clicked upon the "start again"', () => {
-  const startAgain = jest.fn();
-  const addSymbol = jest.fn();
-  const wrapper = shallow(
-    <Board
-      board={board}
-      won={X}
-      startAgain={startAgain}
-      addSymbol={addSymbol}
-      draw={false}
-      turn={X}
-    />
-  );
-  wrapper.find("p.startAgain").simulate("click");
-  expect(startAgain.mock.calls.length).toBe(1);
 });

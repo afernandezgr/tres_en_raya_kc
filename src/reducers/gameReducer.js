@@ -1,5 +1,5 @@
 import { X, O } from "../constants";
-import { resultForSymbol } from "../logic/logic";
+import { resultForSymbol } from "../controller/controller";
 import * as _ from "lodash";
 
 export const initialState = {

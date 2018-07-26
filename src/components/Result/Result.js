@@ -15,12 +15,12 @@ class Result extends Component {
   render() {
     let result = "";
     if (this.props.turn) {
-      result = `Próximo turno jugador: ${this.props.turn.toUpperCase()}`;
+      result = `Próximo jugador ${this.props.turn.toUpperCase()}`;
     }
     if (this.props.won) {
-      result = `Ha ganado jugador ${this.props.won.toUpperCase()}!`;
+      result = `¡Ganó jugador ${this.props.won.toUpperCase()}!`;
     } else if (this.props.draw) {
-      result = "Empate!";
+      result = "¡Empate!";
     }
     return (
       <StyledBox bg="white">

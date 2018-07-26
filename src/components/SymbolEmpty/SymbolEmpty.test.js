@@ -1,8 +1,8 @@
-import React from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import { shallow } from "../../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/enzyme";
+import React from "react";
+import { shallow } from ".enzyme";
 import SymbolEmpty from "./SymbolEmpty";
 
-it("Should call a passed addSymbol callback when it is clicked", () => {
+it("Debería llamarse a addSymbol cuando es pulsado", () => {
   const addSymbol = jest.fn();
   const wrapper = shallow(<SymbolEmpty addSymbol={addSymbol} />);
   wrapper.simulate("click");
