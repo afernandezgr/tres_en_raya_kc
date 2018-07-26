@@ -50,7 +50,7 @@ export const gameReducer = (state, action) => {
       }
 
       return newState;
-    case "START_AGAIN":
+    case "RESTART":
       return initialState;
     default:
       return state;

@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Box, Heading } from "rebass";
+import styled from "styled-components";
 import { connect } from "react-redux";
+
+const StyledBox = styled(Box)`
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+  }
+`;
 
 class Result extends Component {
   render() {
@@ -14,9 +23,11 @@ class Result extends Component {
       result = "Empate!";
     }
     return (
-      <div>
-        <p>{result}</p>
-      </div>
+      <StyledBox bg="white">
+        <Heading fontSize={3} color="black" py={2} px={3} m={0}>
+          {result}
+        </Heading>
+      </StyledBox>
     );
   }
 }

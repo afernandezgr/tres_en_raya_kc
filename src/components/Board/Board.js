@@ -6,6 +6,7 @@ import SymbolO from "../SymbolO";
 import { X, O } from "../../constants";
 import { addSymbol, startAgain } from "../../actions/actions";
 import { connect } from "react-redux";
+import { ButtonCircle } from "rebass";
 
 class Board extends Component {
   addSymbol(rowIndex, position, symbol) {
@@ -44,9 +45,10 @@ class Board extends Component {
           );
         })}
         {this.props.won || this.props.draw ? (
-          <p className="startAgain" onClick={this.props.startAgain}>
-            Pulse para empezar de nuevo!
-          </p>
+          <ButtonCircle
+            onClick={this.props.startAgain}
+            children="Pulse para empezar de nuevo!"
+          />
         ) : (
           false
         )}
