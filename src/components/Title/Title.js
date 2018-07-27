@@ -1,6 +1,7 @@
-import React from "react";
-import { Box, Heading } from "rebass";
-import styled from "styled-components";
+import React from 'react';
+import { Box, Heading } from 'rebass';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledBox = styled(Box)`
   margin-top: 4px;
@@ -17,5 +18,9 @@ const Title = ({ title }) => (
     </Heading>
   </StyledBox>
 );
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Title;

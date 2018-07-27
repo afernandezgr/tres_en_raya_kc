@@ -1,61 +1,61 @@
-import { initialState, gameReducer } from "./gameReducer";
-import { X, O } from "../symbols/symbols";
+import { initialState, gameReducer } from './gameReducer';
+import { X, O } from '../symbols/symbols';
 
-it("Should add a symbol at given position and change turn", () => {
+it('Should add a symbol at given position and change turn', () => {
   const state = {
     board: {
-      0: ["", "", ""],
-      1: ["", "", ""],
-      2: ["", "", ""]
+      0: ['', '', ''],
+      1: ['', '', ''],
+      2: ['', '', ''],
     },
-    won: undefined,
-    wonLine: undefined,
-    draw: false,
-    turn: O
+    win: undefined,
+    winLine: undefined,
+    tie: false,
+    turn: O,
   };
   const nextState = gameReducer(state, {
-    type: "ADD_SYMBOL",
+    type: 'ADD_SYMBOL',
     symbol: O,
     row: 0,
-    position: 0
+    position: 0,
   });
-  expect(nextState.board[0]).toEqual([O, "", ""]);
+  expect(nextState.board[0]).toEqual([O, '', '']);
   expect(nextState.turn).toEqual(X);
 });
 
-it('Should set "won" symbol when a winning line is set', () => {
+it('Should set "win" symbol when a winning line is set', () => {
   const state = {
     board: {
-      0: [X, O, ""],
-      1: ["", X, ""],
-      2: [O, "", ""]
+      0: [X, O, ''],
+      1: ['', X, ''],
+      2: [O, '', ''],
     },
-    won: undefined,
-    wonLine: undefined,
-    draw: false,
-    turn: X
+    win: undefined,
+    winLine: undefined,
+    tie: false,
+    turn: X,
   };
   const nextState = gameReducer(state, {
-    type: "ADD_SYMBOL",
+    type: 'ADD_SYMBOL',
     symbol: X,
     row: 2,
-    position: 2
+    position: 2,
   });
-  expect(nextState.won).toEqual(X);
+  expect(nextState.win).toEqual(X);
 });
 
-it("Should reset the state to initial", () => {
+it('Should reset the state to initial', () => {
   const state = {
     board: {
-      0: [X, O, ""],
-      1: ["", X, ""],
-      2: [O, "", ""]
+      0: [X, O, ''],
+      1: ['', X, ''],
+      2: [O, '', ''],
     },
-    won: undefined,
-    wonLine: undefined,
-    draw: false,
-    turn: X
+    win: undefined,
+    winLine: undefined,
+    tie: false,
+    turn: X,
   };
-  const nextState = gameReducer(state, { type: "RESTART" });
+  const nextState = gameReducer(state, { type: 'RESTART' });
   expect(nextState).toEqual(initialState);
 });

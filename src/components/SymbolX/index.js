@@ -1,1 +1,1 @@
-export { default } from "./SymbolX";
+export { default } from './SymbolX';

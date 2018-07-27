@@ -1,6 +1,6 @@
+import * as _ from 'lodash';
 import { X, O } from '../constants';
 import { resultForSymbol } from '../controller/controller';
-import * as _ from 'lodash';
 
 export const initialState = {
   board: {
@@ -8,9 +8,9 @@ export const initialState = {
     1: ['', '', ''],
     2: ['', '', ''],
   },
-  won: undefined,
-  wonLine: undefined,
-  draw: false,
+  win: undefined,
+  winLine: undefined,
+  tie: false,
   turn: O,
 };
 
@@ -24,27 +24,26 @@ export const gameReducer = (state, action) => {
       const xResult = resultForSymbol(X, newState.board);
       const oResult = resultForSymbol(O, newState.board);
 
-      if (xResult.won) {
-        newState.won = X;
-        newState.wonLine = xResult.line;
+      if (xResult.win) {
+        newState.win = X;
+        newState.winLine = xResult.line;
       }
 
-      if (oResult.won) {
-        newState.won = O;
-        newState.wonLine = oResult.line;
+      if (oResult.win) {
+        newState.win = O;
+        newState.winLine = oResult.line;
       }
 
-      if (!newState.won) {
+      if (!newState.win) {
         newState.turn = newState.turn === O ? X : O;
       }
 
-      const boardIsFull =
-        [...newState.board[0], ...newState.board[1], ...newState.board[2]].filter(
-          symbol => symbol !== '',
-        ).length === 9;
+      const boardIsFull = [...newState.board[0], ...newState.board[1], ...newState.board[2]].filter(
+        symbol => symbol !== '',
+      ).length === 9;
 
-      if (boardIsFull && !newState.won) {
-        newState.draw = true;
+      if (boardIsFull && !newState.win) {
+        newState.tie = true;
       }
 
       return newState;

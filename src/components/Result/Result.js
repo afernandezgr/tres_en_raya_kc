@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'rebass';
 import styled from 'styled-components';
@@ -11,37 +11,24 @@ const StyledBox = styled(Box)`
   }
 `;
 
-class Result extends Component {
-  render() {
-    let result = '';
-    if (this.props.turn) {
-      result = `Próximo jugador ${this.props.turn.toUpperCase()}`;
-    }
-    if (this.props.won) {
-      result = `¡Ganó jugador ${this.props.won.toUpperCase()}!`;
-    } else if (this.props.draw) {
-      result = '¡Empate!';
-    }
-    return (
-      <StyledBox bg="white">
-        <Heading fontSize={3} color="black" py={2} px={3} m={0}>
-          {result}
-        </Heading>
-      </StyledBox>
-    );
-  }
-}
+const Result = ({ turn, win, tie }) => (
+  <StyledBox bg="white">
+    <Heading fontSize={3} color="black" py={2} px={3} m={0}>
+      {(tie && 'Empate!')
+        || (win && `Ha ganado ${win.toUpperCase()} `)
+        || (turn && `Es el turno de ${turn.toUpperCase()}.`)}
+    </Heading>
+  </StyledBox>
+);
 
 Result.propTypes = {
-  won: PropTypes.string.isRequired,
+  win: PropTypes.string.isRequired,
   turn: PropTypes.string.isRequired,
-  draw: PropTypes.bool.isRequired,
+  tie: PropTypes.bool.isRequired,
 };
 
-export default connect(({ won, turn, draw }) => ({
-  won,
+export default connect(({ win, turn, tie }) => ({
+  win,
   turn,
-  draw,
+  tie,
 }))(Result);
-
-export { Result as PureResult };

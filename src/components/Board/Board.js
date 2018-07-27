@@ -26,13 +26,13 @@ class Board extends Component {
   }
 
   addSymbol(rowIndex, position, symbol) {
-    !this.props.won && this.props.addSymbol(rowIndex, position, symbol);
+    !this.props.win && this.props.addSymbol(rowIndex, position, symbol);
   }
 
   render() {
-    const wonClass = this.props.won ? ` won-${this.props.wonLine}` : '';
-    const drawClass = this.props.draw ? ' draw' : '';
-    const boardClass = `board${wonClass}${drawClass}`;
+    const winClass = this.props.win ? ` win-${this.props.winLine}` : '';
+    const tieClass = this.props.tie ? ' tie' : '';
+    const boardClass = `board${winClass}${tieClass}`;
     return (
       <div className={boardClass}>
         {Object.keys(this.props.board).map(rowIndex => (
@@ -40,7 +40,7 @@ class Board extends Component {
             {this.props.board[rowIndex].map((symbol, positon) => this.getSymbol(rowIndex, positon, symbol))}
           </div>
         ))}
-        {this.props.won || this.props.draw ? (
+        {this.props.win || this.props.tie ? (
           <ButtonCircle onClick={this.props.startAgain} children="Pulse para empezar de nuevo!" />
         ) : (
           false
@@ -53,22 +53,22 @@ class Board extends Component {
 Board.propTypes = {
   board: PropTypes.objectOf.isRequired,
   turn: PropTypes.string.isRequired,
-  won: PropTypes.string.isRequired,
-  draw: PropTypes.bool.isRequired,
-  wonLine: PropTypes.string.isRequired,
+  win: PropTypes.string.isRequired,
+  tie: PropTypes.bool.isRequired,
+  winLine: PropTypes.string.isRequired,
   addSymbol: PropTypes.func.isRequired,
   startAgain: PropTypes.func.isRequired,
 };
 
 export default connect(
   ({
-    board, turn, won, draw, wonLine,
+    board, turn, win, tie, winLine,
   }) => ({
     board,
     turn,
-    won,
-    draw,
-    wonLine,
+    win,
+    tie,
+    winLine,
   }),
   dispatch => ({
     addSymbol(rowIndex, position, symbol) {
@@ -79,5 +79,3 @@ export default connect(
     },
   }),
 )(Board);
-
-export { Board as PureBoard };
