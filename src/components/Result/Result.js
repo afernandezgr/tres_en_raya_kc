@@ -11,24 +11,24 @@ const StyledBox = styled(Box)`
   }
 `;
 
-const Result = ({ turn, win, tie }) => (
+const Result = ({ turn, won, tie }) => (
   <StyledBox bg="white">
     <Heading fontSize={3} color="black" py={2} px={3} m={0}>
       {(tie && 'Empate!')
-        || (win && `Ha ganado ${win.toUpperCase()} `)
-        || (turn && `Es el turno de ${turn.toUpperCase()}.`)}
+        || (won && `Ha ganado ${won.toUpperCase()} `)
+        || (turn && `Es el turno de ${turn.toUpperCase()}`)}
     </Heading>
   </StyledBox>
 );
 
 Result.propTypes = {
-  win: PropTypes.string.isRequired,
+  won: PropTypes.string.isRequired,
   turn: PropTypes.string.isRequired,
   tie: PropTypes.bool.isRequired,
 };
 
-export default connect(({ win, turn, tie }) => ({
-  win,
+export default connect(({ won, turn, tie }) => ({
+  won,
   turn,
   tie,
 }))(Result);

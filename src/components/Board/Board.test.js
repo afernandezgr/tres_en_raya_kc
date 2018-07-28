@@ -16,7 +16,13 @@ it('Debería mostrar el tablero con los simbolos', () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
-    <Board board={board} startAgain={startAgain} addSymbol={addSymbol} tie={false} turn={X} />,
+    <Board
+      board={board}
+      startAgain={startAgain}
+      addSymbol={addSymbol}
+      tie={false}
+      turn={X}
+    />,
   );
   expect(wrapper.find(SymbolX).length).toBe(4);
   expect(wrapper.find(SymbolO).length).toBe(3);
@@ -27,7 +33,13 @@ it('No debería mostrar el boton de comenzar de nuevo mientras un jugador no hay
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
-    <Board board={board} startAgain={startAgain} addSymbol={addSymbol} tie={false} turn={X} />,
+    <Board
+      board={board}
+      startAgain={startAgain}
+      addSymbol={addSymbol}
+      tie={false}
+      turn={X}
+    />,
   );
   expect(wrapper.find('p.startAgain').length).toBe(0);
 });
@@ -38,7 +50,7 @@ it('Debería mostrar el botón "Start again"vcuando un jugador haya ganado', () 
   const wrapper = shallow(
     <Board
       board={board}
-      win={X}
+      won={X}
       startAgain={startAgain}
       addSymbol={addSymbol}
       tie={false}
@@ -52,7 +64,13 @@ it('Debería mostrar botón de "jugar otra vez" si existe empate', () => {
   const startAgain = jest.fn();
   const addSymbol = jest.fn();
   const wrapper = shallow(
-    <Board board={board} tie startAgain={startAgain} addSymbol={addSymbol} turn={X} />,
+    <Board
+      board={board}
+      tie
+      startAgain={startAgain}
+      addSymbol={addSymbol}
+      turn={X}
+    />,
   );
   expect(wrapper.find('p.startAgain').length).toBe(1);
 });

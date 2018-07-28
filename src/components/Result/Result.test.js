@@ -8,8 +8,8 @@ it('Debería mostrar el componente Result con un mensaje indicando el próximo t
 });
 
 it('Debería mostrar el componente Result indicando el jugador que ha ganado', () => {
-  const wrapper = shallow(<Result win="x" tie={false} turn="x" />);
-  expect(wrapper.find('p').node.props.children).toEqual('Yay! X win!');
+  const wrapper = shallow(<Result won="x" tie={false} turn="x" />);
+  expect(wrapper.find('p').node.props.children).toEqual('Yay! X won!');
 });
 
 it('Debería mostrar el componente Result indicando que han empatado', () => {

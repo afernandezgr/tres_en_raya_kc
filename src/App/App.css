@@ -23,39 +23,39 @@ svg {
 }
 
 /* Combinaciones ganadoras */
-.board.win-row0 .row0 .symbol {
+.board.won-row0 .row0 .symbol {
   background-color: greenyellow;
 }
-.board.win-row1 .row1 .symbol {
+.board.won-row1 .row1 .symbol {
   background-color: greenyellow;
 }
-.board.win-row2 .row2 .symbol {
+.board.won-row2 .row2 .symbol {
   background-color: greenyellow;
 }
-.board.win-column0 .symbol.column0 {
+.board.won-column0 .symbol.column0 {
   background-color: greenyellow;
 }
-.board.win-column1 .symbol.column1 {
+.board.won-column1 .symbol.column1 {
   background-color: greenyellow;
 }
-.board.win-column2 .symbol.column2 {
+.board.won-column2 .symbol.column2 {
   background-color: greenyellow;
 }
-.board.win-leftSlant .row0 .symbol.column0 {
+.board.won-diagonal1 .row0 .symbol.column0 {
   background-color: greenyellow;
 }
-.board.win-leftSlant .row1 .symbol.column1 {
+.board.won-diagonal1 .row1 .symbol.column1 {
   background-color: greenyellow;
 }
-.board.win-leftSlant .row2 .symbol.column2 {
+.board.won-diagonal1 .row2 .symbol.column2 {
   background-color: greenyellow;
 }
-.board.win-rightSlant .row0 .symbol.column2 {
+.board.won-diagonal2 .row0 .symbol.column2 {
   background-color: greenyellow;
 }
-.board.win-rightSlant .row1 .symbol.column1 {
+.board.won-diagonal2 .row1 .symbol.column1 {
   background-color: greenyellow;
 }
-.board.win-rightSlant .row2 .symbol.column0 {
+.board.won-diagonal2 .row2 .symbol.column0 {
   background-color: greenyellow;
 }

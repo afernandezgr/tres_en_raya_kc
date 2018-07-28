@@ -26,13 +26,13 @@ class Board extends Component {
   }
 
   addSymbol(rowIndex, position, symbol) {
-    !this.props.win && this.props.addSymbol(rowIndex, position, symbol);
+    !this.props.won && this.props.addSymbol(rowIndex, position, symbol);
   }
 
   render() {
-    const winClass = this.props.win ? ` win-${this.props.winLine}` : '';
+    const wonClass = this.props.won ? ` won-${this.props.wonLine}` : '';
     const tieClass = this.props.tie ? ' tie' : '';
-    const boardClass = `board${winClass}${tieClass}`;
+    const boardClass = `board${wonClass}${tieClass}`;
     return (
       <div className={boardClass}>
         {Object.keys(this.props.board).map(rowIndex => (
@@ -40,8 +40,11 @@ class Board extends Component {
             {this.props.board[rowIndex].map((symbol, positon) => this.getSymbol(rowIndex, positon, symbol))}
           </div>
         ))}
-        {this.props.win || this.props.tie ? (
-          <ButtonCircle onClick={this.props.startAgain} children="Pulse para empezar de nuevo!" />
+        {this.props.won || this.props.tie ? (
+          <ButtonCircle
+            onClick={this.props.startAgain}
+            children="Pulse para empezar de nuevo!"
+          />
         ) : (
           false
         )}
@@ -53,28 +56,29 @@ class Board extends Component {
 Board.propTypes = {
   board: PropTypes.objectOf.isRequired,
   turn: PropTypes.string.isRequired,
-  win: PropTypes.string.isRequired,
+  won: PropTypes.string.isRequired,
   tie: PropTypes.bool.isRequired,
-  winLine: PropTypes.string.isRequired,
+  wonLine: PropTypes.string.isRequired,
   addSymbol: PropTypes.func.isRequired,
   startAgain: PropTypes.func.isRequired,
 };
 
 export default connect(
   ({
-    board, turn, win, tie, winLine,
+    board, turn, won, tie, wonLine,
   }) => ({
     board,
     turn,
-    win,
+    won,
     tie,
-    winLine,
+    wonLine,
   }),
   dispatch => ({
     addSymbol(rowIndex, position, symbol) {
       dispatch(addSymbol(rowIndex, position, symbol));
     },
     startAgain() {
+      console.log('reiniciamos???');
       dispatch(startAgain());
     },
   }),
