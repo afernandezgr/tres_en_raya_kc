@@ -22,9 +22,13 @@ const Result = ({ turn, won, tie }) => (
 );
 
 Result.propTypes = {
-  won: PropTypes.string.isRequired,
+  won: PropTypes.string,
   turn: PropTypes.string.isRequired,
   tie: PropTypes.bool.isRequired,
+};
+
+Result.defaultProps = {
+  won: undefined,
 };
 
 export default connect(({ won, turn, tie }) => ({

@@ -15,12 +15,11 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
+  const { symbol, row, position } = action;
+  const newState = _.cloneDeep(state);
   switch (action.type) {
     case 'ADD_SYMBOL':
-      const { symbol, row, position } = action;
-      const newState = _.cloneDeep(state);
       newState.board[row][position] = symbol;
-
       const xResult = hasWonSymbol(X, newState.board);
       const oResult = hasWonSymbol(O, newState.board);
       if (xResult.won) {

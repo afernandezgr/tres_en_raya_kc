@@ -56,9 +56,9 @@ class Board extends Component {
 Board.propTypes = {
   board: PropTypes.objectOf.isRequired,
   turn: PropTypes.string.isRequired,
-  won: PropTypes.string.isRequired,
+  won: PropTypes.string,
   tie: PropTypes.bool.isRequired,
-  wonLine: PropTypes.string.isRequired,
+  wonLine: PropTypes.string,
   addSymbol: PropTypes.func.isRequired,
   startAgain: PropTypes.func.isRequired,
 };

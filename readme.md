@@ -8,7 +8,7 @@
 
 - Cada turno corresponderá a un jugador, hasta que uno de ellos venza, o resulte imposible realizar una nueva jugada. En ese momento, se mostrará el mensaje correspondiente, junto a un botón para reiniciar la partida.
 
-##Requisitos técnicos
+### Requisitos técnicos
 
 - React como librería de UI
 
