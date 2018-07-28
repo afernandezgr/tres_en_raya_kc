@@ -78,7 +78,6 @@ export default connect(
       dispatch(addSymbol(rowIndex, position, symbol));
     },
     startAgain() {
-      console.log('reiniciamos???');
       dispatch(startAgain());
     },
   }),

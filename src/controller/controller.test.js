@@ -1,7 +1,7 @@
 import { hasWonSymbol } from './logic';
 import { X, O } from '../symbols/symbols';
 
-it('Should indicate no winning result', () => {
+it('Deberia indicar que no hay ganadores', () => {
   const board = {
     0: ['', X, ''],
     1: [O, '', O],
@@ -13,7 +13,7 @@ it('Should indicate no winning result', () => {
   expect(oResult.win).toBe(false);
 });
 
-it('Should indicate X as a winner in row0', () => {
+it('Deberia ndicar que ha ganado X en la fila 0', () => {
   const board = {
     0: [X, X, X],
     1: ['', O, ''],
@@ -26,7 +26,7 @@ it('Should indicate X as a winner in row0', () => {
   expect(oResult.win).toBe(false);
 });
 
-it('Should indicate X as a winner in row1', () => {
+it('Deberia ndicar que ha ganado X en la fila 1', () => {
   const board = {
     0: ['', '', O],
     1: [X, X, X],
@@ -39,7 +39,7 @@ it('Should indicate X as a winner in row1', () => {
   expect(oResult.win).toBe(false);
 });
 
-it('Should indicate X as a winner in row2', () => {
+it('Debería indicar que ha ganado X en la fila 2', () => {
   const board = {
     0: ['', O, ''],
     1: ['', O, ''],
@@ -52,7 +52,7 @@ it('Should indicate X as a winner in row2', () => {
   expect(oResult.win).toBe(false);
 });
 
-it('Should indicate O as a winner in column0', () => {
+it('Debería indica que ha ganado O en la columna 0', () => {
   const board = {
     0: [O, X, X],
     1: [O, '', ''],
@@ -65,7 +65,7 @@ it('Should indicate O as a winner in column0', () => {
   expect(oResult.line).toBe('column0');
 });
 
-it('Should indicate O as a winner in column1', () => {
+it('Debería indicar que ha ganado 0 en la columna 1', () => {
   const board = {
     0: ['', O, X],
     1: ['', O, ''],
@@ -78,7 +78,7 @@ it('Should indicate O as a winner in column1', () => {
   expect(oResult.line).toBe('column1');
 });
 
-it('Should indicate O as a winner in column2', () => {
+it('Debería indicar que ha ganado O en columna 2', () => {
   const board = {
     0: ['', X, O],
     1: [X, '', O],
@@ -91,7 +91,7 @@ it('Should indicate O as a winner in column2', () => {
   expect(oResult.line).toBe('column2');
 });
 
-it('Should indicate O as a winner in diagonal1', () => {
+it('Deberia indicar que ha ganado O en diagonal 1', () => {
   const board = {
     0: [O, X, X],
     1: ['', O, ''],
@@ -104,7 +104,7 @@ it('Should indicate O as a winner in diagonal1', () => {
   expect(oResult.line).toBe('diagonal1');
 });
 
-it('Should indicate X as a winner in diagonal2', () => {
+it('Deberia indicar que ha ganado X n la diagonal 2', () => {
   const board = {
     0: ['', O, X],
     1: ['', X, ''],
