@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import { X, O } from '../constants';
-import { hasWonSymbol } from '../controller/controller';
+import { hasWonSymbol, boardIsFull } from '../controller/controller';
 
 export const initialState = {
   board: {
@@ -37,13 +37,7 @@ export const reducer = (state, action) => {
         newState.turn = newState.turn === O ? X : O;
       }
 
-      const boardIsFull = [
-        ...newState.board[0],
-        ...newState.board[1],
-        ...newState.board[2],
-      ].filter(symbol => symbol !== '').length === 9;
-
-      if (boardIsFull && !newState.won) {
+      if (boardIsFull(newState.board) && !newState.won) {
         newState.tie = true;
       }
 
