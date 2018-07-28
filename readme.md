@@ -2,7 +2,7 @@
 
 
 
-##Descripción
+### Descripción
 
 - Sistema para poder jugar a las 3 en raya.
 

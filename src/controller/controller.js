@@ -16,6 +16,7 @@ const hasWonInColumn = (symbol, colNumber, ...rows) => countInColumn(symbol, col
 const hasWonInDiagonal1 = (symbol, ...rows) => countInDiagonal1(symbol, ...rows) === 3;
 const hasWonInDiagonal2 = (symbol, ...rows) => countInDiagonal2(symbol, ...rows) === 3;
 
+// Comprobamos si el tabalero está llena indicar que hay un empate
 export const boardIsFull = board => [...board[0], ...board[1], ...board[2]].filter(symbol => symbol !== '')
   .length === 9;
 
