@@ -1,7 +1,7 @@
 import { initialState, reducer } from './reducer';
 import { X, O } from '../symbols/symbols';
 
-it('Should add a symbol at given position and change turn', () => {
+it('Deberia añadir un simbolo en la positcion dada y cambir el turno', () => {
   const state = {
     board: {
       0: ['', '', ''],
@@ -23,7 +23,7 @@ it('Should add a symbol at given position and change turn', () => {
   expect(nextState.turn).toEqual(X);
 });
 
-it('Should set "won" symbol when a winning line is set', () => {
+it('Debería marchar como ganado el simbolo cuando la linea ganadora es marcada', () => {
   const state = {
     board: {
       0: [X, O, ''],
@@ -44,7 +44,7 @@ it('Should set "won" symbol when a winning line is set', () => {
   expect(nextState.won).toEqual(X);
 });
 
-it('Should reset the state to initial', () => {
+it('Debería reiniciar el stado al initialState', () => {
   const state = {
     board: {
       0: [X, O, ''],

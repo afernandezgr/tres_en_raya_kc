@@ -49,7 +49,6 @@ export const reducer = (state, action) => {
 
       return newState;
     case 'RESTART':
-      console.log('reiniciamos');
       return initialState;
     default:
       return state;
