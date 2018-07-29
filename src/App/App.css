@@ -19,7 +19,7 @@ svg {
 
 /* Empate */
 .board.tie .symbol {
-  background-color: red;
+  background-color: rgb(161, 16, 125);
 }
 
 /* Combinaciones ganadoras */
