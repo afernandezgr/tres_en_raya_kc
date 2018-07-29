@@ -20,9 +20,9 @@
 
 - Se aconseja “redux-persist” o similar para persistir el store en LocalStorage, aunque no será necesario en caso de usar algún servicio para el backend.
 
-- El código deberá estar correctamente indentado y no deberá tener errores de sintaxis. Se aconseja la combinación eslint/prettier para formateo automático. La guía de estilos de JavaScript que seguiremos será la de AirBnB.
+- El código está correctamente indentado y no contiene errores de sintaxis. Se ha combinado  eslint/prettier para formateo automático. La guía de estilos de JavaScript que se ha seguido ha sido la de AirBnB.
 
-- Para evitar tener que montar Webpack, Babel y demás se aconseja el uso de “create-react-app”.
+- Para montar Webpack, Babel y demás se ha empleado “create-react-app”.
 
 Adolfo Fernández 
 2018
